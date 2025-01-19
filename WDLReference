@@ -1,0 +1,16 @@
+WDL reference
+https://docs.openwdl.org/en/stable/
+function
+https://github.com/openwdl/wdl/blob/wdl-1.2/SPEC.md#appendix-a-wdl-value-serialization-and-deserialization
+#name an output file based on another filename, e.g. an input filename. Giving it a File will strip off the path and yield the filename alone (as a String). If you also give it a string as a secondary argument, the function will attempt to strip that string off the end of the filename and return whatever remains.e 
+   String InResultFile_prefix=basename(source_file_prefixT2)
+    File input_file = "/Users/chris/input.bam"
+String stripped = basename(input_file, ".bam") #input as output
+   String OutResultFile=basename(source_file_prefixT2)+"wgs_singletonCount.txt"
+   Array[File] all_output_files = flatten(output_files)
+   #arrayToString(chr_list_arrayT2, delimiter =" ")## Convert array to string with space as a delimiterdoesn’t work
+  Int disk = 1
+  ## Convert array to string with space as a delimiterdoesn’t work
+   String chrlist_strT2 = "~{sep=" " chr_list_arrayT2}"
+
+
